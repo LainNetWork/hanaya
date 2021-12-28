@@ -12,7 +12,7 @@
     sudo apt-get update
     sudo apt-get install libwebp-dev
 
-##### Windows
+##### Windows:
 解压压缩包到任意路径，如D://libwebp-1.2.1-windows-x64-no-wic
 
 配置如下环境变量：
@@ -56,7 +56,7 @@ eg:
 
 >Body: 压缩后的图片内容
 
-##### 压缩失败：
+压缩失败：
 > Content-Type：application/json
 
 Body:
