@@ -13,7 +13,6 @@ import (
 
 func main() {
 	engine := gin.Default()
-	// /webp/s*size/q*quality
 	engine.POST("/webp/*quality", func(ctx *gin.Context) {
 		pressParam := strings.ToLower(ctx.Param("quality"))
 		split := strings.Split(strings.TrimPrefix(pressParam, "/"), "/")
