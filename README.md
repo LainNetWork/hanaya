@@ -49,13 +49,13 @@ M1 MacOS环境变量：
 eg:
 想要将图片限制在1200\*1200的范围内，并进行一个百分之75的有损压缩，你应该请求的地址为：/webp/s1200\*1200/q75
 
-####返回值：
+#### 返回值：
 压缩成功：
 > Content-Type: image/webp
 
 >Body: 压缩后的图片内容
 
-#####压缩失败：
+##### 压缩失败：
 > Content-Type：application/json
 
 Body:
@@ -65,5 +65,3 @@ Body:
 	"msg":"reason",
 }
 ```
-
-
