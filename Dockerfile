@@ -1,13 +1,11 @@
-FROM golang:1.17.5-alpine
+FROM golang:1.17.5
 COPY . /app
 WORKDIR /app
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
-    && apk update \
-	&& apk add build-base \
-    && apk add tzdata \
-    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone \
-    && apk add libwebp=1.2.1-r0 \
+RUN wget -O /etc/apt/sources.list http://mirrors.cloud.tencent.com/repo/ubuntu20_sources.list \
+	&& apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 871920D1991BC93C \
+	&& apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 3B4FE6ACC0B21F32 \
+	&& apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 871920D1991BC93C \
+	&& apt-get update && apt-get install libwebp-dev \
 	&& cd /app && go env -w GO111MODULE=on \
 	&& go env -w GOPROXY=https://goproxy.cn,direct \
 	&& go mod tidy \
