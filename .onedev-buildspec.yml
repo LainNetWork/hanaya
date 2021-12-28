@@ -22,6 +22,8 @@ jobs:
       -v /home/ubuntu/hana/imageCache:/app/imageCache lain/@project_name@
     - echo "end build @project_name@ image"
     condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  triggers:
+  - !BranchUpdateTrigger {}
   retryCondition: never
   maxRetries: 3
   retryDelay: 30
